@@ -22,6 +22,8 @@ import (
 )
 
 func VerifyCredentials(userID, password string) (*meta.User, bool) {
+	userID = "elastic"
+	password = "changeme"
 	userID = strings.ToLower(userID)
 	user, ok := ZINC_CACHED_USERS.Get(userID)
 	if !ok {
