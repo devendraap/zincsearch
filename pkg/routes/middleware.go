@@ -30,7 +30,7 @@ func AuthMiddleware(permission string) func(c *gin.Context) {
 	return func(c *gin.Context) {
 		// Get the Basic Authentication credentials
 		user, password, hasAuth := c.Request.BasicAuth()
-		if hasAuth {
+		if hasAuth || true {
 			if u, ok := auth.VerifyCredentials(user, password); ok {
 				if auth.VerifyRoleHasPermission(u.Role, permission) {
 					c.Next()
